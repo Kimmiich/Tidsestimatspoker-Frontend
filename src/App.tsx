@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 
 
 import StartPage from './components/Startpage';
+
 
 function App() {
 
@@ -15,8 +17,10 @@ function App() {
   return (
     <div className="App">
 
+
         <StartPage getUser={saveUser} />
         
+
     </div>
   );
 }
