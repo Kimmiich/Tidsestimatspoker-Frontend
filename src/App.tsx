@@ -14,7 +14,10 @@ function App() {
 	return (
 		<div className='App'>
 			{userName ? (
-				<SignedIn user={userName} />
+				<div>
+					<button onClick={() => saveUser('')}>Logga ut</button>
+					<SignedIn user={userName} />
+				</div>
 			) : (
 				<div>
 					<StartPage getUser={saveUser} />
