@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import SignedIn from './Components/SignedIn';
 import StartPage from './Components/Startpage';
 
 function App() {
@@ -12,7 +13,14 @@ function App() {
 
 	return (
 		<div className='App'>
-			<StartPage getUser={saveUser} />
+			{userName ? (
+				<SignedIn user={userName} />
+			) : (
+				<div>
+					<StartPage getUser={saveUser} />
+					<p>Vänligen logga in</p>
+				</div>
+			)}
 		</div>
 	);
 }
