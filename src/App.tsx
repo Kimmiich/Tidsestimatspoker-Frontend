@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import StartPage from './components/Startpage';
+import StartPage from './Components/Startpage';
 
 function App() {
 	const [userName, setUserName] = useState('');
