@@ -1,44 +1,25 @@
+import {min, max, median, average} from '../helperFunctions/calculations'
+
 // import MyExampleFunction from "../helperFunctions/exampleFunction"
 //Importera helperfunctions för:
 // - Uppdatera siffrorna
 
-//Testsiffror
-const array: number[] = [1, 5, 14, 4, 5]
+// //Testsiffror
+let array: number[] = [1, 5, 14, 4, 5]
 
-// Det mittersta värdet av en sorterad lista
-const median = (array:number[]) => {
-  const mid = Math.floor(array.length / 2),
-    nums = [...array].sort((a, b) => a - b);
-  return array.length % 2 !== 0 ? nums[mid] : (nums[mid-1] + nums[mid])/2
+interface Props {
+  minVal: number 
+  maxVal: number 
+  medianVal: number 
+  averageVal: number
 }
 
-// Medelvärdet
-const average = (array: number[]) => {
-  return array.reduce((a,b) => a+b,0) / array.length
-}
+const Summary = (props: Props) => {
+  props.minVal = min(array)
+  props.maxVal = max(array)
+  props.medianVal = median(array)
+  props.averageVal = average(array)
 
-//Maxvärdet
-const max = (array:number[]) => {
- return Math.max(...array)
-}
-
-//Minvärdet
-const min = (array:number[]) => {
- return Math.min(...array)
-}
-
-// console.log("median: ",median(array));
-// console.log("average: ",average(array));
-// console.log("max: ",max(array));
-// console.log("min: ", min(array));
-
-const minVal: number = min(array);
-const maxVal: number = max(array);
-const medianVal: number = median(array);
-const averageVal: number = average(array);
-
-
-const Summary = () => {
   return (
     <table style={{textAlign:"center"}}>
   <tr>
@@ -48,10 +29,10 @@ const Summary = () => {
     <th>Medel</th>
   </tr>
   <tr>
-    <td>{minVal}h</td>
-    <td>{maxVal}h</td>
-    <td>{medianVal}h</td>
-    <td>{averageVal}h</td>
+    <td>{props.minVal}h</td>
+    <td>{props.maxVal}h</td>
+    <td>{props.medianVal}h</td>
+    <td>{props.averageVal}h</td>
   </tr>
 </table>
      

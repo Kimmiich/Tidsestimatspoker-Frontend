@@ -10,14 +10,7 @@ const Issue = () => {
           alignItems: "flex-end",
           height: '80px'
         }}>Issue
-        <input type="text" placeholder='H' 
-          style={{
-            width: '30px',
-            height: '30px',
-            textAlign: 'center'
-          }}/>
-        <button style={{padding:'0.6rem'}}>Spara</button>
-        <Summary />
+        <Summary/>
         <div style={{display:'flex', flexDirection:'column', alignItems:"center"}}>
         <label>Faktisk tid</label>
         <input type='text' placeholder='H' 
@@ -34,5 +27,3 @@ const Issue = () => {
 }
 
 export default Issue
-
-//Stylingen är temporär och bara för att se hur det kan se ut.
