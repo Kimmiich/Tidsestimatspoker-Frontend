@@ -4,6 +4,10 @@
 
 https://github.com/loveefraimsson/Tidsestimatspoker-Backend
 
+## API kopplat till databasen
+
+https://timeestimator.herokuapp.com/
+
 ## Wireframe och arkitektur
 
 https://app.diagrams.net/#G15YRO1nJPizdNB4eds8OZQSB51ryjDk7g
