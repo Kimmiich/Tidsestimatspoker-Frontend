@@ -37,7 +37,7 @@ Se till att din lokala dev matchar senaste på github
 
 Skapa ny branch för issuet du vill lösa
 
-`git checkout -b ${reponaman}-issue-#{issue-nr}`
+`git checkout -b ${reponamn}-issue-#{issue-nr}`
 
 Gör ändringar
 
@@ -45,4 +45,4 @@ Adda och commita till ny branchen
 
 Pusha sen till github
 
-`git push origin ${reponaman}-issue-#{issue-nr}`
+`git push origin ${reponamn}-issue-#{issue-nr}`
