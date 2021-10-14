@@ -1,4 +1,4 @@
-# UppgiftMiniprojekt: Tidsestimatspoker
+# Miniprojekt: Tidsestimatspoker
 
 ## Beskrivning
 
