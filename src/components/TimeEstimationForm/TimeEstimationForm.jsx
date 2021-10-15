@@ -24,14 +24,14 @@ function TimeEstimationForm() {
 	return (
 		<form className='time-estimation-form' onSubmit={handleSubmit}>
 			<p>
-				<label>I think this task will take:</label>
+				<label>Jag estimerar att denna issue tar:</label>
 				<input
 					type='number'
 					value={estimatedHours}
 					onChange={handleInputChange}
 					required
 				/>
-				hours
+				timmar att genomföra
 			</p>
 			<p>
 				<button type='submit'>Spara estimerade timmar för detta issue</button>
