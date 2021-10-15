@@ -1,4 +1,4 @@
-const API_URL = 'https://timeestimator.herokuapp.com/';
+const API_URL = 'https://timeestimator.herokuapp.com/estimate';
 
 //Accepts a object with inputvalue and userName/id?
 const saveInput = (obj) => {
