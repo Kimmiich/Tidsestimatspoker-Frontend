@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Issue from './Issue';
+import Header from './Header';
 
 interface Props {
     user: string;
@@ -32,7 +33,9 @@ function SignedIn(props: Props) {
                 <h1 className="signed-in-text">{user}</h1>
             </header>
             <main className="project-container">
-                <header>Header-container</header>
+                <header>
+                    <Header projectName={issues[0]['githubProject']} />
+                </header>
                 <div>
                     {issues.map((issue, i) => {
                         return <Issue key={i} issue={issue} user={user} />;
