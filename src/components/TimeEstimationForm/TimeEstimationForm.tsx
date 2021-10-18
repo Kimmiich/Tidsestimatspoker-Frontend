@@ -3,20 +3,31 @@ import saveInput from '../../helperFunctions/saveInputs';
 
 import './TimeEstimationForm.css';
 
-function TimeEstimationForm() {
-    const [estimatedHours, setEstimatedHours] = useState('0');
+interface Props {
+    user: string;
+    issueName: string;
+}
 
-    const handleSubmit = (evt) => {
+function TimeEstimationForm(props: Props) {
+    const { user, issueName } = props;
+
+    const [estimatedHours, setEstimatedHours] = useState('2');
+
+    const handleSubmit = (evt: any) => {
         evt.preventDefault();
-        // let newInput = {
-        //   issue: ,
-        //   estimate: estimatedHours,
-        //   user: ,
-        // };
-        // saveInput(newInput);
+
+        let hoursAsNumber = parseInt(estimatedHours, 10);
+
+        let newInput = {
+            issue: issueName,
+            estimate: hoursAsNumber,
+            user: user,
+        };
+        console.log('newInput: ', newInput);
+        saveInput(newInput);
     };
 
-    const handleInputChange = ({ target }) => {
+    const handleInputChange = ({ target }: any) => {
         if (target.value < 1) target.value = 1;
         if (target.value > 999) target.value = 999;
         setEstimatedHours(target.value);

@@ -6,10 +6,11 @@ interface Props {
         issueName: string;
         githubProject: string;
     };
+    user: string;
 }
 
 const Issue = (props: Props) => {
-    const { issue } = props;
+    const { issue, user } = props;
     return (
         <>
             <div
@@ -21,7 +22,7 @@ const Issue = (props: Props) => {
                 }}
             >
                 {issue.issueName}
-                <TimeEstimationForm />
+                <TimeEstimationForm user={user} issueName={issue.issueName} />
                 <Summary array={[5, 10, 26, 7, 3]} />
                 <div
                     style={{

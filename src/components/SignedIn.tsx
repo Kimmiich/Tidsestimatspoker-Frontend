@@ -34,8 +34,8 @@ function SignedIn(props: Props) {
             <main className="project-container">
                 <header>Header-container</header>
                 <div>
-                    {issues.map((issue) => {
-                        return <Issue issue={issue} />;
+                    {issues.map((issue, i) => {
+                        return <Issue key={i} issue={issue} user={user} />;
                     })}
                 </div>
             </main>
