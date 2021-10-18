@@ -34,7 +34,7 @@ function SignedIn(props: Props) {
             </header>
             <main className="project-container">
                 <header>
-                    <Header projectName={issues[0]['githubProject']} />
+                    <Header projectName="Tidsestimatspoker-Frontend" />
                 </header>
                 <div>
                     {issues.map((issue, i) => {
