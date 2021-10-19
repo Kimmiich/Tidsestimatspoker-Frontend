@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import SignedIn from './components/SignedIn';
-import StartPage from './components/Startpage';
+import StartPage from './components/Startpage/Startpage';
 
 function App() {
     const [userName, setUserName] = useState('');
