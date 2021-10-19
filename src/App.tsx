@@ -12,7 +12,7 @@ function App() {
     };
 
     return (
-        <div className="App">
+        <>
             {userName ? (
                 <>
                     <button onClick={() => saveUser('')}>Logga ut</button>
@@ -21,10 +21,9 @@ function App() {
             ) : (
                 <>
                     <StartPage getUser={saveUser} />
-                    <p>Vänligen logga in</p>
                 </>
             )}
-        </div>
+        </>
     );
 }
 
