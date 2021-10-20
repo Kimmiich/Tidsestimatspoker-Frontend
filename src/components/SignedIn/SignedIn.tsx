@@ -11,6 +11,9 @@ interface Props {
 function SignedIn(props: Props) {
     const { user } = props;
 
+    //Capitalize the first letter of name
+    const displayName = user.charAt(0).toLocaleUpperCase() + user.slice(1);
+
     // Fetched from github - only name and project
     const [issuesFromGH, setIssuesFromGH] = useState([]);
 
@@ -61,7 +64,7 @@ function SignedIn(props: Props) {
     return (
         <section className="signed-in-page">
             <header className="signed-in-header">
-                <h1 className="signed-in-text">{user}</h1>
+                <h1 className="signed-in-text">{displayName}</h1>
             </header>
             <main className="project-container">
                 <header>
