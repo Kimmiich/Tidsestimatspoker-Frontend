@@ -1,16 +1,27 @@
 import Summary from './Summary';
 import TimeEstimationForm from './TimeEstimationForm/TimeEstimationForm';
+import { useState } from "react";
+import checkIfNumber from '../helperFunctions/checkIfNumber'
 
 interface Props {
     issue: {
         issueName: string;
         githubProject: string;
+        bjorn?: number
+        emil?: number
+        kimmie?: number
+        love?: number
+        stina?: number
+ 
     };
     user: string;
 }
 
 const Issue = (props: Props) => {
     const { issue, user } = props;
+    const [ estimates, setEstimates ] = useState([issue.bjorn, issue.emil, issue.kimmie, issue.love, issue.stina]);
+
+
     return (
         <>
             <div
@@ -23,7 +34,7 @@ const Issue = (props: Props) => {
             >
                 {issue.issueName}
                 <TimeEstimationForm user={user} issueName={issue.issueName} />
-                <Summary array={[5, 10, 26, 7, 3]} />
+                { checkIfNumber(estimates) ? <Summary array={estimates}/> : '' } 
                 <div
                     style={{
                         display: 'flex',
@@ -47,5 +58,6 @@ const Issue = (props: Props) => {
         </>
     );
 };
+
 
 export default Issue;
