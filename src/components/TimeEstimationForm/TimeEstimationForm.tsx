@@ -36,18 +36,19 @@ function TimeEstimationForm(props: Props) {
     return (
         <form className="time-estimation-form" onSubmit={handleSubmit}>
             <p>
-                <label>Jag estimerar att denna issue tar:</label>
+                <label>Jag estimerar att det tar: </label>
+                <br />
                 <input
                     type="number"
                     value={estimatedHours}
                     onChange={handleInputChange}
                     required
                 />
-                timmar att genomföra
+                timmar
             </p>
             <p>
-                <button type="submit">
-                    Spara estimerade timmar för detta issue
+                <button className='saveTimeBtn' type="submit">
+                    Spara estimerade timmar
                 </button>
             </p>
         </form>

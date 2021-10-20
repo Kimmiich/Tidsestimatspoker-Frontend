@@ -15,15 +15,15 @@ function App() {
         <div className="App">
             {userName ? (
                 <>
-                    <button onClick={() => saveUser('')}>Logga ut</button>
+                    <button className='logOutBtn' onClick={() => saveUser('')}>Logga ut</button>
                     <SignedIn user={userName} />
                 </>
             ) : (
-                <>
-                    <StartPage getUser={saveUser} />
-                    <p>Vänligen logga in</p>
-                </>
-            )}
+                    <>
+                        <StartPage getUser={saveUser} />
+                        <p>Vänligen logga in</p>
+                    </>
+                )}
         </div>
     );
 }
