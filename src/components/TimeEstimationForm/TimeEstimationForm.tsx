@@ -19,8 +19,8 @@ function TimeEstimationForm(props: Props) {
         let hoursAsNumber = parseInt(estimatedHours, 10);
 
         let newInput = {
-            issue: issueName,
-            estimate: hoursAsNumber,
+            issueName: issueName,
+            time: hoursAsNumber,
             user: user,
         };
         console.log('newInput: ', newInput);
