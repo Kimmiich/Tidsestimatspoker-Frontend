@@ -35,11 +35,11 @@ class StartPage extends React.Component<Props, State> {
                             onChange={onChange}
                         >
                             <option value="">Välj användare</option>
-                            <option value="Kimmie">Kimmie</option>
-                            <option value="Stina">Stina</option>
-                            <option value="Emil">Emil</option>
-                            <option value="Love">Love</option>
-                            <option value="Björn">Björn</option>
+                            <option value="kimmie">Kimmie</option>
+                            <option value="stina">Stina</option>
+                            <option value="emil">Emil</option>
+                            <option value="love">Love</option>
+                            <option value="bjorn">Björn</option>
                         </select>
                         <button className="sign-in" onClick={onClick}>
                             Logga in
