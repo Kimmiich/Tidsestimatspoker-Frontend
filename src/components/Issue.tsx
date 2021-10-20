@@ -1,36 +1,51 @@
 import Summary from './Summary';
 import TimeEstimationForm from './TimeEstimationForm/TimeEstimationForm';
-import { useState } from "react";
-import checkIfNumber from '../helperFunctions/checkIfNumber'
+import { useState, useEffect } from 'react';
+import checkIfNumber from '../helperFunctions/checkIfNumber';
 import saveActualTime from '../helperFunctions/saveActualTime';
 
 interface Props {
     issue: {
         issueName: string;
         githubProject: string;
-        bjorn?: number
-        emil?: number
-        kimmie?: number
-        love?: number
-        stina?: number
- 
+        bjorn?: number;
+        emil?: number;
+        kimmie?: number;
+        love?: number;
+        stina?: number;
     };
     user: string;
 }
 
 const Issue = (props: Props) => {
     const { issue, user } = props;
-    const [estimates, setEstimates] = useState([issue.bjorn, issue.emil, issue.kimmie, issue.love, issue.stina]);
+    const [estimates, setEstimates] = useState([
+        issue.bjorn,
+        issue.emil,
+        issue.kimmie,
+        issue.love,
+        issue.stina,
+    ]);
+
+    useEffect(() => {
+        setEstimates([
+            issue.bjorn,
+            issue.emil,
+            issue.kimmie,
+            issue.love,
+            issue.stina,
+        ]);
+    }, [props.issue]);
+
     const [actualTime, setActualTime] = useState();
 
-    const onChange = (evt: any) => {       
-        setActualTime(evt.target.value);       
-    }
+    const onChange = (evt: any) => {
+        setActualTime(evt.target.value);
+    };
 
-    const sendTime = () => {       
+    const sendTime = () => {
         saveActualTime(actualTime, issue);
-    }
-
+    };
 
     return (
         <>
@@ -44,7 +59,7 @@ const Issue = (props: Props) => {
             >
                 {issue.issueName}
                 <TimeEstimationForm user={user} issueName={issue.issueName} />
-                { checkIfNumber(estimates) ? <Summary array={estimates}/> : '' } 
+                {checkIfNumber(estimates) ? <Summary array={estimates} /> : ''}
                 <div
                     style={{
                         display: 'flex',
@@ -64,11 +79,12 @@ const Issue = (props: Props) => {
                         }}
                     />
                 </div>
-                <button onClick={sendTime} style={{ padding: '0.6rem' }}>Spara</button>
+                <button onClick={sendTime} style={{ padding: '0.6rem' }}>
+                    Spara
+                </button>
             </div>
         </>
     );
 };
-
 
 export default Issue;
