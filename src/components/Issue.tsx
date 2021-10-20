@@ -1,7 +1,7 @@
 import Summary from './Summary';
 import TimeEstimationForm from './TimeEstimationForm/TimeEstimationForm';
-import { useState } from "react";
-import checkIfNumber from '../helperFunctions/checkIfNumber'
+import { useState, useEffect } from 'react';
+import checkIfNumber from '../helperFunctions/checkIfNumber';
 import saveActualTime from '../helperFunctions/saveActualTime';
 
 interface Props {
@@ -21,6 +21,17 @@ interface Props {
 const Issue = (props: Props) => {
   const { issue, user } = props;
   const [estimates, setEstimates] = useState([issue.bjorn, issue.emil, issue.kimmie, issue.love, issue.stina]);
+
+  // useEffect(() => {
+  //   setEstimates([
+  //     issue.bjorn,
+  //     issue.emil,
+  //     issue.kimmie,
+  //     issue.love,
+  //     issue.stina,
+  //   ]);
+  // }, [props.issue]);
+
   const [actualTime, setActualTime] = useState();
 
   const onChange = (evt: any) => {
@@ -52,6 +63,5 @@ const Issue = (props: Props) => {
     </>
   );
 };
-
 
 export default Issue;

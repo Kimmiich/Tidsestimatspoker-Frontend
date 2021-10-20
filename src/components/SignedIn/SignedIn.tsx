@@ -11,7 +11,11 @@ interface Props {
 function SignedIn(props: Props) {
     const { user } = props;
 
-    const [issues, setIssues] = useState([]);
+    // Fetched from github - only name and project
+    const [issuesFromGH, setIssuesFromGH] = useState([]);
+
+    // Saved to our db - with time estimates per person
+    const [issuesFromDB, setIssuesFromDB] = useState([]);
 
     useEffect(() => {
         fetch(
@@ -19,7 +23,7 @@ function SignedIn(props: Props) {
         )
             .then((res) => res.json())
             .then((data) => {
-                setIssues(
+                setIssuesFromGH(
                     data.map((issue: any) => {
                         return {
                             issueName: issue.title,
@@ -34,14 +38,14 @@ function SignedIn(props: Props) {
         fetch('http://localhost:3001/setallissues', {
             method: 'post',
             headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify(issues),
+            body: JSON.stringify(issuesFromGH),
         })
             .then((res) => res.json())
             .then((data) => {
                 console.log('data from mongodb', data);
             })
             .catch((err) => console.log(err));
-    }, [issues]);
+    }, [issuesFromGH]);
 
     useEffect(() => {
         fetch('http://localhost:3001/getallissues-with-all-estimates')
@@ -49,7 +53,7 @@ function SignedIn(props: Props) {
             .then((data) => {
                 // replace issues with mongoDB data
                 console.log('data from mongodb with time estimates', data);
-                setIssues(data);
+                setIssuesFromDB(data);
             })
             .catch((err) => console.log(err));
     }, []);
@@ -64,7 +68,7 @@ function SignedIn(props: Props) {
                     <Header projectName="Tidsestimatspoker-Frontend" />
                 </header>
                 <div>
-                    {issues.map((issue, i) => {
+                    {issuesFromDB.map((issue, i) => {
                         return <Issue key={i} issue={issue} user={user} />;
                     })}
                 </div>
