@@ -1,5 +1,7 @@
 import Summary from './Summary';
 import TimeEstimationForm from './TimeEstimationForm/TimeEstimationForm';
+import { useState } from 'react';
+import saveActualTime from '../helperFunctions/saveActualTime';
 
 interface Props {
     issue: {
@@ -11,6 +13,18 @@ interface Props {
 
 const Issue = (props: Props) => {
     const { issue, user } = props;
+
+    const [actualTime, setActualTime] = useState();
+
+    const onChange = (evt: any) => {       
+        setActualTime(evt.target.value);       
+    }
+
+    const sendTime = () => {       
+        saveActualTime(actualTime, issue);
+    }
+
+
     return (
         <>
             <div
@@ -35,6 +49,7 @@ const Issue = (props: Props) => {
                     <input
                         type="text"
                         placeholder="H"
+                        onChange={onChange}
                         style={{
                             width: '30px',
                             height: '30px',
@@ -42,7 +57,7 @@ const Issue = (props: Props) => {
                         }}
                     />
                 </div>
-                <button style={{ padding: '0.6rem' }}>Spara</button>
+                <button onClick={sendTime} style={{ padding: '0.6rem' }}>Spara</button>
             </div>
         </>
     );
