@@ -1,16 +1,36 @@
 import Summary from './Summary';
 import TimeEstimationForm from './TimeEstimationForm/TimeEstimationForm';
+import { useState } from "react";
+import checkIfNumber from '../helperFunctions/checkIfNumber'
+import saveActualTime from '../helperFunctions/saveActualTime';
 
 interface Props {
   issue: {
     issueName: string;
     githubProject: string;
+    bjorn?: number
+    emil?: number
+    kimmie?: number
+    love?: number
+    stina?: number
+
   };
   user: string;
 }
 
 const Issue = (props: Props) => {
   const { issue, user } = props;
+  const [estimates, setEstimates] = useState([issue.bjorn, issue.emil, issue.kimmie, issue.love, issue.stina]);
+  const [actualTime, setActualTime] = useState();
+
+  const onChange = (evt: any) => {
+    setActualTime(evt.target.value);
+  }
+
+  const sendTime = () => {
+    saveActualTime(actualTime, issue);
+  }
+
   return (
     <>
       <div className='issue'>
@@ -18,18 +38,20 @@ const Issue = (props: Props) => {
           {issue.issueName}
         </div>
         <TimeEstimationForm user={user} issueName={issue.issueName} />
-        <Summary array={[5, 10, 26, 7, 3]} />
+        {checkIfNumber(estimates) ? <Summary array={estimates} /> : ''}
         <div className='actualTime'>
           <label>Faktisk tid</label>
           <input className='actualInput'
             type="text"
             placeholder="H"
+            onChange={onChange}
           />
         </div>
-        <button className='saveActBtn'>Spara</button>
+        <button className='saveActBtn' onClick={sendTime}>Spara</button>
       </div>
     </>
   );
 };
+
 
 export default Issue;
