@@ -4,7 +4,7 @@ import { min, max, median, average } from '../helperFunctions/calculations'
 // let array: number[] = [1, 5, 14, 4, 5]
 
 interface Props {
-  array: number[]
+  array?: any
 }
 
 const Summary = (props: Props) => {
