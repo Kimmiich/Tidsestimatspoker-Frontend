@@ -13,7 +13,7 @@ interface Props {
     kimmie?: number
     love?: number
     stina?: number
-
+    actualTime?: string
   };
   user: string;
 }
@@ -41,6 +41,10 @@ const Issue = (props: Props) => {
   const sendTime = () => {
     saveActualTime(actualTime, issue);
   }
+  
+  const checkTime = () => {
+    return (issue.actualTime) || "-";
+  }
 
   return (
     <>
@@ -54,7 +58,7 @@ const Issue = (props: Props) => {
           <label>Faktisk tid</label>
           <input className='actualInput'
             type="text"
-            placeholder="H"
+            placeholder={checkTime()}
             onChange={onChange}
           />
         </div>
