@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Issue from './Issue';
-import Header from './Header';
+import Issue from '../Issue';
+import Header from '../Header';
+
+import './SignedIn.css'
 
 interface Props {
     user: string;
