@@ -17,19 +17,21 @@ const Summary = (props: Props) => {
   const averageVal = average(array)
 
   return (
-    <table style={{ textAlign: "center" }}>
-      <tr>
-        <th>Min</th>
-        <th>Max</th>
-        <th>Median</th>
-        <th>Medel</th>
-      </tr>
-      <tr>
-        <td>{minVal}h</td>
-        <td>{maxVal}h</td>
-        <td>{medianVal}h</td>
-        <td>{averageVal}h</td>
-      </tr>
+    <table>
+      <tbody>
+        <tr>
+          <th>Min</th>
+          <th>Max</th>
+          <th>Median</th>
+          <th>Medel</th>
+        </tr>
+        <tr>
+          <td>{minVal}h</td>
+          <td>{maxVal}h</td>
+          <td>{medianVal}h</td>
+          <td>{averageVal}h</td>
+        </tr>
+      </tbody>
     </table>
 
   )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import SignedIn from './components/SignedIn';
+import SignedIn from './components//SignedIn/SignedIn';
 import StartPage from './components/Startpage/Startpage';
 
 function App() {
@@ -15,14 +15,14 @@ function App() {
         <>
             {userName ? (
                 <>
-                    <button onClick={() => saveUser('')}>Logga ut</button>
+                    <button className='logOutBtn' onClick={() => saveUser('')}>Logga ut</button>
                     <SignedIn user={userName} />
                 </>
             ) : (
-                <>
-                    <StartPage getUser={saveUser} />
-                </>
-            )}
+                    <>
+                        <StartPage getUser={saveUser} />
+                    </>
+                )}
         </>
     );
 }
