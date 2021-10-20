@@ -1,6 +1,7 @@
 import Summary from './Summary';
 import TimeEstimationForm from './TimeEstimationForm/TimeEstimationForm';
 import { useState } from 'react';
+import saveActualTime from '../helperFunctions/saveActualTime';
 
 interface Props {
     issue: {
@@ -19,23 +20,8 @@ const Issue = (props: Props) => {
         setActualTime(evt.target.value);       
     }
 
-    const sendTime = () => {
-        console.log("issue.issueName", issue.issueName);
-        console.log("actualTime", actualTime);
-
-
-        
-
-        fetch("http://localhost:3001/setactualtime", {
-            method: 'post',
-            headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({time: actualTime, issueName: issue.issueName}),
-        })
-        .then((res) => res.json())
-        .then((data) => {
-            console.log('data', data);
-        })
-        .catch((err) => console.log(err));
+    const sendTime = () => {       
+        saveActualTime(actualTime, issue);
     }
 
 
