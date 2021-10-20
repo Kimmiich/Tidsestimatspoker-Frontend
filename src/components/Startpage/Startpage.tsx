@@ -28,7 +28,7 @@ class StartPage extends React.Component<Props, State> {
             <div className="startpage-container">
                 <main className="startpage-box">
                     <section className="startpage-sign-in">
-                        <h1>TIDSESTIMATOR</h1>
+                        <h1 className="title">TIDSESTIMATOR</h1>
                         <select
                             name="userNames"
                             id="userNames"
@@ -41,10 +41,14 @@ class StartPage extends React.Component<Props, State> {
                             <option value="Love">Love</option>
                             <option value="Björn">Björn</option>
                         </select>
-                        <button onClick={onClick}>Logga in</button>
+                        <button className="sign-in" onClick={onClick}>
+                            Logga in
+                        </button>
                     </section>
                     <section className="footer">
-                        <p>Välj en användare för att logga in</p>
+                        <p className="explanation-text">
+                            Välj en användare för att logga in
+                        </p>
                     </section>
                 </main>
             </div>

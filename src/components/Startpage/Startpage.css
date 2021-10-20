@@ -7,6 +7,7 @@
     align-items: center;
     font-family: 'Roboto', sans-serif;
     text-align: center;
+    letter-spacing: 0.2px;
 }
 
 .startpage-box {
@@ -14,7 +15,8 @@
     min-width: 250px;
     max-width: 400px;
     height: 40%;
-    background-color: pink;
+    min-height: 200px;
+    background-color: rgba(100, 148, 237, 0.829);
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     border-radius: 5px;
     display: flex;
@@ -26,32 +28,45 @@
 .startpage-sign-in {
     height: 50%;
     width: 80%;
-    background-color: brown;
     display: flex;
     flex-flow: column nowrap;
 }
 
 .footer {
     width: 80%;
-    background-color: blue;
 }
 
-h1 {
-    background-color: coral;
+.title {
+    height: 30%;
+    text-decoration: underline;
+    margin: 0px;
 }
 
 select {
-    background-color: cornsilk;
+    border-radius: 3px;
+    padding: 6px 3px;
+    cursor: pointer;
 }
 
-option {
-    background-color: darkgoldenrod;
+/* option {
+    
+} */
+
+.sign-in {
+    border-radius: 3px;
+    padding: 6px 3px;
+    color: white;
+    background-color: rgb(59, 59, 59);
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    transition: all 0.5s linear;
+}
+.sign-in:hover {
+    background-color: black;
+    text-decoration: underline;
 }
 
-button {
-    background-color: darkgreen;
-}
-
-p {
-    background-color: chartreuse;
+.explanation-text {
+    font-size: 15px;
+    margin: 0px auto;
 }
