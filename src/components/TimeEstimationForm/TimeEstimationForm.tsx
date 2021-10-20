@@ -6,12 +6,21 @@ import './TimeEstimationForm.css';
 interface Props {
     user: string;
     issueName: string;
+    issue: {
+        bjorn?: number
+        emil?: number
+        kimmie?: number
+        love?: number
+        stina?: number
+    }
 }
 
-function TimeEstimationForm(props: Props) {
-    const { user, issueName } = props;
 
-    const [estimatedHours, setEstimatedHours] = useState('2');
+function TimeEstimationForm(props: Props) {
+
+    const { user, issueName, issue } = props;
+
+    const [estimatedHours, setEstimatedHours] = useState('');
 
     const handleSubmit = (evt: any) => {
         evt.preventDefault();
@@ -33,6 +42,17 @@ function TimeEstimationForm(props: Props) {
         setEstimatedHours(target.value);
     };
 
+    const checkEstimHours = () => {
+
+
+        for (let [name, time] of Object.entries(issue)) {
+            if (name === user) {
+                let guess = time.toString()
+                return guess
+            }
+        }
+    }
+
     return (
         <form className="time-estimation-form" onSubmit={handleSubmit}>
             <p>
@@ -43,6 +63,7 @@ function TimeEstimationForm(props: Props) {
                     value={estimatedHours}
                     onChange={handleInputChange}
                     required
+                    placeholder={checkEstimHours()}
                 />
                 timmar
             </p>

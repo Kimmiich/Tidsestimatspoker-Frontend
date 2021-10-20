@@ -28,15 +28,15 @@ const Issue = (props: Props) => {
     issue.stina
   ]);
 
-  // useEffect(() => {
-  //       setEstimates([
-  //           issue.bjorn,
-  //           issue.emil,
-  //           issue.kimmie,
-  //           issue.love,
-  //           issue.stina,
-  //       ]);
-  //   }, [props.issue]);
+  useEffect(() => {
+    setEstimates([
+      issue.bjorn,
+      issue.emil,
+      issue.kimmie,
+      issue.love,
+      issue.stina,
+    ]);
+  }, [props.issue]);
 
   const [actualTime, setActualTime] = useState();
 
@@ -54,7 +54,7 @@ const Issue = (props: Props) => {
         <div className="issueName">
           {issue.issueName}
         </div>
-        <TimeEstimationForm user={user} issueName={issue.issueName} />
+        <TimeEstimationForm user={user} issueName={issue.issueName} issue={issue} />
         {checkIfNumber(estimates) ? <Summary array={estimates} /> : ''}
         <div className='actualTime'>
           <label>Faktisk tid</label>
