@@ -13,7 +13,7 @@ interface Props {
     kimmie?: number
     love?: number
     stina?: number
-    actualTime?: string
+    actualTime?: number | string 
   };
   user: string;
 }
@@ -38,18 +38,22 @@ const Issue = (props: Props) => {
     ]);
   }, [props.issue]);
 
-  const [actualTime, setActualTime] = useState();
+  const [actualTime, setActualTime] = useState(issue.actualTime);
 
   const onChange = (evt: any) => {
-    setActualTime(evt.target.value);
+    let hoursAsNumber = parseInt(evt.target.value);
+    console.log('typeof hoursAsNumber', typeof hoursAsNumber);
+    
+    setActualTime(hoursAsNumber);
   }
 
   const sendTime = () => {
+    
     saveActualTime(actualTime, issue);
   }
   
   const checkTime = () => {
-    return (issue.actualTime) || "-";
+    return (issue.actualTime)?.toString() || "-";
   }
 
   return (
