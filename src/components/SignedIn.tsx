@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Issue from './Issue';
 import Header from './Header';
 
-
 interface Props {
     user: string;
 }
@@ -11,8 +10,6 @@ function SignedIn(props: Props) {
     const { user } = props;
 
     const [issues, setIssues] = useState([]);
-
-
 
     useEffect(() => {
         fetch(
@@ -32,19 +29,28 @@ function SignedIn(props: Props) {
     }, []);
 
     useEffect(() => {
-      fetch("http://localhost:3001/setallissues", {
-        method: 'post',
-        headers: { 'Content-type': 'application/json' },
-        body: JSON.stringify(issues),
-      })
-      .then((res) => res.json())
-      .then((data) => {
-          console.log('data', data);
-      })
-      .catch((err) => console.log(err));
+        fetch('http://localhost:3001/setallissues', {
+            method: 'post',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify(issues),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log('data from mongodb', data);
+            })
+            .catch((err) => console.log(err));
     }, [issues]);
 
-    
+    useEffect(() => {
+        fetch('http://localhost:3001/getallissues-with-all-estimates')
+            .then((res) => res.json())
+            .then((data) => {
+                // replace issues with mongoDB data
+                console.log('data from mongodb with time estimates', data);
+                setIssues(data);
+            })
+            .catch((err) => console.log(err));
+    }, []);
 
     return (
         <section className="signed-in-page">
