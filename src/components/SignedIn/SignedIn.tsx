@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Issue from '../Issue';
 import Header from '../Header';
 
-import './SignedIn.css'
+import './SignedIn.css';
 
 interface Props {
     user: string;
@@ -65,7 +65,10 @@ function SignedIn(props: Props) {
             </header>
             <main className="project-container">
                 <header>
-                    <Header projectName="Tidsestimatspoker-Frontend" />
+                    <Header
+                        projectName="Tidsestimatspoker-Frontend"
+                        issues={issuesFromDB}
+                    />
                 </header>
                 <div>
                     {issuesFromDB.map((issue, i) => {
