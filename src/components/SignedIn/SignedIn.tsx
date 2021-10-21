@@ -38,7 +38,7 @@ function SignedIn(props: Props) {
     }, []);
 
     useEffect(() => {
-        fetch('http://localhost:3001/setallissues', {
+        fetch('https://timeestimator.herokuapp.com/setallissues', {
             method: 'post',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(issuesFromGH),
@@ -51,7 +51,7 @@ function SignedIn(props: Props) {
     }, [issuesFromGH]);
 
     useEffect(() => {
-        fetch('http://localhost:3001/getallissues-with-all-estimates')
+        fetch('https://timeestimator.herokuapp.com/getallissues-with-all-estimates')
             .then((res) => res.json())
             .then((data) => {
                 // replace issues with mongoDB data
