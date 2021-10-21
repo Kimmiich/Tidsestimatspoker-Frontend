@@ -1,6 +1,6 @@
 //Saves actaul time in database
 const saveActualTime = (actualTime, issue) => {
-    fetch('http://localhost:3001/setactualtime', {
+    fetch('https://timeestimator.herokuapp.com/setactualtime', {
         method: 'post',
         headers: { 'Content-type': 'application/json' },
         body: JSON.stringify({time: actualTime, issueName: issue.issueName}),
